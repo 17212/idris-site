@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>IDRIVIA AI • Portfolio</title>
+    <title>إدريس غامد | Idris Ghamid</title>
     <meta
       name="description"
-      content="IDRIVIA AI – المساعد الذكي للملاحظات والمهام. تعرّف على المنتج وروابط التنزيل والمتاجر الرسمية."
+      content="بورتفوليو إدريس غامد – مطور تطبيقات أندرويد بفلاتر ومطور واجهات ويب. أعمال، مهارات، تواصل وفرص تعاون."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -16,12 +16,14 @@
     />
     <style>
       :root {
-        --bg: #070a0f;
-        --card: #0f1621;
+        --bg: #05070d;
+        --bg-alt: #0b111c;
+        --card: rgba(255, 255, 255, 0.02);
+        --stroke: rgba(255, 255, 255, 0.08);
         --accent: #8aff5c;
-        --accent-muted: rgba(138, 255, 92, 0.15);
-        --text: #f6f7fb;
-        --muted: #9aa5bc;
+        --accent-dark: #3dff8d;
+        --text: #f4f6fb;
+        --muted: #9aa6be;
       }
 
       * {
@@ -31,30 +33,45 @@
       body {
         margin: 0;
         font-family: 'Cairo', 'Space Grotesk', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-        background: radial-gradient(circle at top, rgba(138, 255, 92, 0.15), transparent 45%), var(--bg);
+        background: var(--bg);
         color: var(--text);
-        direction: rtl;
-        line-height: 1.7;
       }
 
-      a {
-        color: inherit;
-        text-decoration: none;
+      .noise {
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        background-image: radial-gradient(circle at 20% 20%, rgba(138, 255, 92, 0.15), transparent 30%),
+          radial-gradient(circle at 80% 0%, rgba(255, 255, 255, 0.06), transparent 45%);
+        opacity: 0.7;
+        z-index: -1;
       }
 
       header {
-        width: min(1200px, 90%);
+        width: min(1200px, 92%);
         margin: auto;
         padding: 32px 0 12px;
         display: flex;
         justify-content: space-between;
         align-items: center;
+        gap: 12px;
         flex-wrap: wrap;
       }
 
-      .logo {
-        font-weight: 700;
-        font-size: 1.3rem;
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .brand img {
+        width: 48px;
+        height: 48px;
+        border-radius: 14px;
+      }
+
+      .brand strong {
+        font-size: 1.2rem;
         letter-spacing: 0.08em;
       }
 
@@ -67,29 +84,61 @@
       nav a {
         color: var(--muted);
         font-size: 0.95rem;
-        transition: color 0.2s ease;
+        padding: 8px 12px;
+        border-radius: 999px;
+        transition: color 0.2s ease, background 0.2s ease;
       }
 
       nav a:hover {
         color: var(--accent);
+        background: rgba(138, 255, 92, 0.08);
+      }
+
+      .cta-top {
+        padding: 10px 18px;
+        border: 1px solid var(--stroke);
+        border-radius: 999px;
+        color: var(--accent);
+        font-weight: 600;
+      }
+
+      main {
+        width: min(1200px, 92%);
+        margin: auto;
+      }
+
+      section {
+        margin-bottom: 80px;
+      }
+
+      .panel {
+        background: var(--card);
+        border: 1px solid var(--stroke);
+        border-radius: 28px;
+        padding: clamp(24px, 4vw, 40px);
+        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.35);
       }
 
       .hero {
-        width: min(1200px, 90%);
-        margin: 40px auto 60px;
-        padding: 40px;
-        border-radius: 28px;
-        background: linear-gradient(135deg, rgba(138, 255, 92, 0.15), rgba(16, 26, 38, 0.9));
-        box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 32px;
+        align-items: center;
       }
 
-      .hero h1 {
-        margin-top: 0;
-        font-size: clamp(2.2rem, 4vw, 3.3rem);
+      .eyebrow {
+        color: var(--accent);
+        font-weight: 600;
+        letter-spacing: 0.08em;
+      }
+
+      h1 {
+        margin: 16px 0;
+        font-size: clamp(2.2rem, 4.5vw, 3.6rem);
         line-height: 1.3;
       }
 
-      .hero p {
+      .hero-summary {
         color: var(--muted);
         font-size: 1.05rem;
       }
@@ -102,206 +151,388 @@
       }
 
       .btn {
-        padding: 14px 24px;
-        border-radius: 16px;
+        padding: 14px 26px;
+        border-radius: 18px;
+        border: 1px solid transparent;
         font-weight: 600;
-        border: 2px solid transparent;
-        transition: transform 0.2s ease, background 0.2s ease, border 0.2s ease;
+        transition: transform 0.2s ease, box-shadow 0.2s ease, border 0.2s ease;
       }
 
       .btn.primary {
-        background: var(--accent);
-        color: #041302;
+        background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+        color: #021406;
+        box-shadow: 0 20px 40px rgba(138, 255, 92, 0.25);
       }
 
       .btn.secondary {
-        border-color: rgba(255, 255, 255, 0.2);
+        border-color: var(--stroke);
         color: var(--text);
       }
 
       .btn:hover {
-        transform: translateY(-2px);
+        transform: translateY(-3px);
       }
 
-      section {
-        width: min(1200px, 90%);
-        margin: 0 auto 70px;
+      .stats {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 16px;
+      }
+
+      .stat {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid var(--stroke);
+        border-radius: 20px;
+        padding: 16px;
+        text-align: center;
+      }
+
+      .stat strong {
+        font-size: 1.8rem;
+        display: block;
       }
 
       .section-title {
-        font-size: 1.5rem;
-        margin-bottom: 20px;
+        font-size: 1.8rem;
+        margin-bottom: 24px;
       }
 
-      .grid {
+      .about-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 28px;
+        align-items: center;
+      }
+
+      .profile-card {
+        border: 1px solid var(--stroke);
+        border-radius: 24px;
+        padding: 20px;
+        background: rgba(255, 255, 255, 0.02);
+      }
+
+      .badge-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 18px;
+      }
+
+      .badge {
+        padding: 6px 14px;
+        border-radius: 999px;
+        border: 1px solid var(--stroke);
+        font-size: 0.85rem;
+        color: var(--muted);
+      }
+
+      .skills-grid,
+      .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 18px;
+      }
+
+      .chip {
+        padding: 14px 16px;
+        border-radius: 18px;
+        border: 1px solid var(--stroke);
+        background: rgba(255, 255, 255, 0.01);
+        font-weight: 500;
+      }
+
+      .experience {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 20px;
+      }
+
+      .timeline-item {
+        border-left: 3px solid var(--accent);
+        padding: 12px 18px;
+        background: rgba(255, 255, 255, 0.02);
+        border-radius: 18px;
+      }
+
+      .project-card {
+        border: 1px solid var(--stroke);
+        border-radius: 22px;
+        padding: 20px;
+        background: rgba(255, 255, 255, 0.02);
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .project-card img {
+        width: 100%;
+        border-radius: 18px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .project-meta {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+
+      .gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 16px;
+      }
+
+      .gallery img {
+        width: 100%;
+        border-radius: 18px;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        transition: transform 0.3s ease;
+      }
+
+      .gallery img:hover {
+        transform: translateY(-6px);
+      }
+
+      .contact-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
         gap: 20px;
       }
 
-      .card {
-        background: var(--card);
-        border: 1px solid rgba(255, 255, 255, 0.05);
+      .contact-card {
+        border: 1px solid var(--stroke);
         border-radius: 20px;
-        padding: 24px;
-        min-height: 190px;
+        padding: 20px;
+        background: rgba(255, 255, 255, 0.02);
       }
 
-      .card h3 {
-        margin-top: 0;
-        font-size: 1.1rem;
+      .socials {
+        display: flex;
+        gap: 14px;
+        flex-wrap: wrap;
+        margin-top: 10px;
       }
 
-      .card p {
-        color: var(--muted);
-        font-size: 0.95rem;
-      }
-
-      .stores {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-        gap: 18px;
-      }
-
-      .store-card {
-        border-radius: 18px;
-        padding: 18px;
-        background: rgba(14, 20, 30, 0.9);
-        border: 1px solid rgba(138, 255, 92, 0.15);
-      }
-
-      .store-card span {
-        display: block;
-        color: var(--muted);
-        font-size: 0.9rem;
-      }
-
-      .store-card strong {
-        font-size: 1.2rem;
+      .socials a {
+        color: var(--accent);
+        font-weight: 600;
       }
 
       footer {
         text-align: center;
-        padding: 40px 20px 60px;
+        padding: 40px 20px 70px;
         color: var(--muted);
-        font-size: 0.9rem;
       }
 
-      @media (max-width: 600px) {
-        .hero {
-          padding: 28px;
+      @media (max-width: 640px) {
+        header {
+          justify-content: center;
+        }
+        .cta-top {
+          width: 100%;
+          text-align: center;
         }
       }
     </style>
   </head>
   <body>
+    <div class="noise"></div>
     <header>
-      <div class="logo">IDRIVIA AI</div>
+      <div class="brand">
+        <img src="ic_launcher.png" alt="IDRIVIA icon" />
+        <strong>IDRIS GHAMID</strong>
+      </div>
       <nav>
-        <a href="#about">عن التطبيق</a>
-        <a href="#features">المزايا</a>
-        <a href="#stores">روابط التحميل</a>
+        <a href="#home">الرئيسية</a>
+        <a href="#about">نبذة</a>
+        <a href="#skills">المهارات</a>
+        <a href="#projects">الأعمال</a>
         <a href="#contact">تواصل</a>
       </nav>
+      <a class="cta-top" href="mailto:idris.ghamid@gmail.com">أعمل مع إدريس</a>
     </header>
 
-    <section class="hero">
-      <p style="color: var(--accent); font-weight: 600; letter-spacing: 0.08em">AI • Productivity • Design</p>
-      <h1>المساعد الذكي الذي يصنع يومك – ملاحظات، مهام، مخطط ومشاعر في منصة واحدة.</h1>
-      <p>
-        IDRIVIA AI هو مشروع عربي مبتكر بواجهة iOS فاخرة، يدمج الذكاء الاصطناعي مع التخطيط الذكي، التذكيرات، التحليلات العاطفية والقوالب
-        الجاهزة. كل ذلك مع تجربة عربية خالصة وخفة أداء جاهزة للمتاجر العالمية.
-      </p>
-      <div class="hero-actions">
-        <a class="btn primary" href="#stores">روابط التنزيل الرسمية</a>
-        <a class="btn secondary" href="#contact">التواصل والشراكات</a>
-      </div>
-    </section>
-
-    <section id="about">
-      <h2 class="section-title">عن المشروع</h2>
-      <div class="grid">
-        <div class="card">
-          <h3>هوية عربية أنيقة</h3>
-          <p>
-            الواجهات تعتمد خطوط IDRIVIASans وألوان Mindora الأصلية مع انتقالات ناعمة، ما يجعل التطبيق متوافقاً مع iOS وAndroid وتهيئة سهلة
-            لمتاجر مثل APKPure، Uptodown وSamsung Galaxy Store.
+    <main>
+      <section id="home" class="panel hero">
+        <div>
+          <span class="eyebrow">مطور تطبيقات أندرويد &amp; واجهات ويب</span>
+          <h1>إدريس غامد.</h1>
+          <p class="hero-summary">
+            مطوّر يعتمد Flutter وFlutter Web لتسليم منتجات نظيفة مدعومة بالذكاء الاصطناعي. أملك شغفاً بتحويل الأفكار إلى تطبيقات جاهزة للنشر
+            على المتاجر البديلة وGalaxy Store، مع تركيز على الأداء، التحليلات، وتجربة الاستخدام.
           </p>
+          <div class="hero-actions">
+            <a class="btn primary" href="#projects">استكشف الأعمال</a>
+            <a class="btn secondary" href="https://www.linkedin.com/in/idris-ghamid/" target="_blank" rel="noopener">ملف LinkedIn</a>
+          </div>
         </div>
-        <div class="card">
-          <h3>نواة ذكاء اصطناعي</h3>
-          <p>
-            مساعد ذكي يدعم الملاحظات، تلخيص الاجتماعات، اقتراح الجداول، وإنشاء شخصيات AI مخصّصة مع قفل لون المحادثة افتراضياً.
-          </p>
+        <div class="stats">
+          <div class="stat">
+            <strong>+3</strong>
+            <span>سنوات بناء واجهات Flutter</span>
+          </div>
+          <div class="stat">
+            <strong>+6</strong>
+            <span>متاجر أطلقت عليها</span>
+          </div>
+          <div class="stat">
+            <strong>100%</strong>
+            <span>تصاميم عربية مخصّصة</span>
+          </div>
         </div>
-        <div class="card">
-          <h3>هندسة أداء وكفاءة</h3>
-          <p>
-            تذكيرات محسّنة للطاقة، سجلات نشاط، وسياسات خصوصية واضحة مع نسخ احتياطية اختيارية. التطبيق متوافق مع Android 7.0 وما فوق.
-          </p>
-        </div>
-      </div>
-    </section>
+      </section>
 
-    <section id="features">
-      <h2 class="section-title">المزايا الأساسية</h2>
-      <div class="grid">
-        <div class="card">
-          <h3>قوالب جاهزة</h3>
-          <p>إنشاء قوالب للاجتماعات، الدراسة، العادات الأسبوعية وإعادة استخدامها بضغطة واحدة.</p>
+      <section id="about" class="panel">
+        <h2 class="section-title">من هو إدريس؟</h2>
+        <div class="about-grid">
+          <div>
+            <p>
+              اسمي إدريس غامد. أعمل مطور تطبيقات أندرويد بفلاتر ومطور مواقع ويب بواجهات عصرية. أحب مزج الذكاء الاصطناعي مع تصميم هادئ يعطي
+              إحساس iOS، سواء كنت أعمل على تطبيق منتج أو صفحة هبوط. أركز على البساطة، السرعة، وسهولة الصيانة.
+            </p>
+            <p>
+              أقود حالياً تطوير <strong>IDRIVIA AI</strong> كمساعد عربي ذكي للملاحظات والمهام. الهدف: بناء منتجات رقمية عربية تشبه التطبيقات
+              العالمية من حيث الجودة، وتبقى خفيفة على الأجهزة وملائمة للمتاجر البديلة.
+            </p>
+            <div class="badge-list">
+              <span class="badge">Flutter &amp; Dart</span>
+              <span class="badge">Flutter Web</span>
+              <span class="badge">Firebase / Supabase</span>
+              <span class="badge">Clean Architecture</span>
+              <span class="badge">UI/UX Systems</span>
+            </div>
+          </div>
+          <div class="profile-card">
+            <h3>ملخص سريع</h3>
+            <p>مقرّي في المنطقة العربية وأتعاون عن بعد مع فرق عالمية. متاح للتوظيف الحر أو الدائم.</p>
+            <ul>
+              <li>الخبرة: بناء منتجات شخصية + تعاون مع ناشرين في APKPure، Uptodown.</li>
+              <li>الخدمات: تطوير تطبيقات أندرويد، صفحات هبوط، إعداد متاجر بديلة.</li>
+              <li>الهوايات: تجربة خطوط عربية جديدة ودمج AI مع التخطيط اليومي.</li>
+            </ul>
+          </div>
         </div>
-        <div class="card">
-          <h3>لوحة مشاعر</h3>
-          <p>تسجيل المزاج وتحليل الرسوم البيانية لتتبّع صحتك العاطفية واستلام توصيات شخصية.</p>
-        </div>
-        <div class="card">
-          <h3>تنبيهات ذكية</h3>
-          <p>Exact alarms، إشعارات محسّنة للطاقة، وتجربة مدمجة مع Android وGalaxy ecosystem.</p>
-        </div>
-        <div class="card">
-          <h3>دعم متعدد المنصات</h3>
-          <p>حزم APK جاهزة للمتاجر البديلة، مع إعدادات بيانات وسجلات امتثال واضحة.</p>
-        </div>
-      </div>
-    </section>
+      </section>
 
-    <section id="stores">
-      <h2 class="section-title">روابط التحميل الرسمية</h2>
-      <div class="stores">
-        <a class="store-card" href="https://apkpure.com" target="_blank" rel="noopener">
-          <span>APKPure</span>
-          <strong>إصدار 13.11.07</strong>
-          <p>قيد المراجعة – ستحصل على رابط التحميل بمجرد الإتاحة.</p>
-        </a>
-        <a class="store-card" href="https://uptodown.com" target="_blank" rel="noopener">
-          <span>Uptodown</span>
-          <strong>Pending Review</strong>
-          <p>تم رفع الحزمة الرسمية وتنتظر الموافقة التحريرية.</p>
-        </a>
-        <a class="store-card" href="https://en.aptoide.com" target="_blank" rel="noopener">
-          <span>Aptoide</span>
-          <strong>Official Store</strong>
-          <p>محفوظ تحت متجر خاص مع إثبات ملكية وصور مخصّصة.</p>
-        </a>
-      </div>
-    </section>
+      <section id="skills" class="panel">
+        <h2 class="section-title">المهارات التقنية</h2>
+        <div class="skills-grid">
+          <div class="chip">Flutter • Dart</div>
+          <div class="chip">Android Jetpack Integration</div>
+          <div class="chip">Firebase (Auth, FCM, Firestore)</div>
+          <div class="chip">REST &amp; GraphQL APIs</div>
+          <div class="chip">Clean Architecture &amp; Provider</div>
+          <div class="chip">CI/CD مع GitHub Actions</div>
+          <div class="chip">Flutter Web • Responsive UI</div>
+          <div class="chip">Figma to Code</div>
+          <div class="chip">Store Compliance (APKPure, Uptodown, Galaxy Store)</div>
+        </div>
+      </section>
 
-    <section id="contact">
-      <h2 class="section-title">تواصل وشراكات</h2>
-      <div class="card" style="max-width: 720px">
-        <p>
-          جاهز للتعاون مع الناشرين، المستثمرين، وشركاء المحتوى في المنطقة العربية. يمكنك مراسلتي على البريد التالي أو عبر لينكدإن
-          لطلبات العمل، المراجعات التقنية، أو دمج تقنيات IDRIVIA AI في منتجاتكم.
-        </p>
-        <p>
-          البريد: <a href="mailto:support@idris-ghamid.run.place">support@idris-ghamid.run.place</a><br />
-          لينكدإن: <a href="https://www.linkedin.com" target="_blank" rel="noopener">linkedin.com/in/idris-ghamid</a>
-        </p>
-      </div>
-    </section>
+      <section class="panel">
+        <h2 class="section-title">خبرة مختصرة</h2>
+        <div class="experience">
+          <div class="timeline-item">
+            <h3>IDRIVIA Labs</h3>
+            <p>مؤسس ومطور رئيسي • 2023 - الآن</p>
+            <p>قيادة تطوير IDRIVIA AI، إعداد الأكواد، المتاجر، الحملات، والتوثيق باللغة العربية والإنجليزية.</p>
+          </div>
+          <div class="timeline-item">
+            <h3>Freelance UI/UX + Web</h3>
+            <p>2022 - 2023</p>
+            <p>تصميم صفحات هبوط عربية لمنتجات ناشئة، إعداد مواقع على GitHub Pages وربط نطاقات مخصّصة.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects" class="panel">
+        <h2 class="section-title">مشروع حالي</h2>
+        <div class="projects-grid">
+          <article class="project-card">
+            <img src="Screenshot_1763549189.png" alt="IDRIVIA AI screenshot" />
+            <div>
+              <h3>IDRIVIA AI</h3>
+              <p>
+                مساعد إنتاجية عربي يوحد الملاحظات، المهام، المشاعر، والقوالب مع شخصيات AI قابلة للتخصيص. تم رفعه على Uptodown، APKPure،
+                Aptoide، وجاري اعتماده في Galaxy Store.
+              </p>
+              <div class="project-meta">
+                <span>Flutter</span>
+                <span>Firebase</span>
+                <span>Gemini 2.5 Flash</span>
+              </div>
+            </div>
+            <a class="btn secondary" href="#gallery">استعرض الواجهة</a>
+          </article>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2 class="section-title">خارطة الطريق القادمة</h2>
+        <div class="experience">
+          <div class="timeline-item">
+            <h3>FocusFlow Planner</h3>
+            <p>لوحة تخطيط يومية بستايل iOS مع تكامل الذكاء الاصطناعي لإعادة ترتيب المهام والاقتراحات الزمنية الذكية.</p>
+            <p class="project-meta"><span>Flutter Web</span> <span>Supabase</span></p>
+          </div>
+          <div class="timeline-item">
+            <h3>AI Research Notebook</h3>
+            <p>دفتر ملاحظات تفاعلي يسمح للذكاء الاصطناعي بتحرير وإعادة تنظيم مقالاتك العربية.</p>
+            <p class="project-meta"><span>Flutter</span> <span>LLM Ops</span></p>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2 class="section-title">لقطات تطبيق IDRIVIA AI</h2>
+        <div class="gallery">
+          <img src="Screenshot_1763549189.png" alt="IDRIVIA chat" />
+          <img src="Screenshot_1763549237.png" alt="Planner screen" />
+          <img src="Screenshot_1763549309.png" alt="Notebook screen" />
+          <img src="Screenshot_1763549321.png" alt="Insights screen" />
+          <img src="Screenshot_1763549335.png" alt="Settings screen" />
+          <img src="Screenshot_1763549465.png" alt="Reminder screen" />
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2 class="section-title">شهادات ودورات</h2>
+        <div class="skills-grid">
+          <div class="chip">Google Android Basics Nanodegree (2023)</div>
+          <div class="chip">Meta Front-End Professional Certificate (2024)</div>
+          <div class="chip">Flutter &amp; Firebase Mastery – Udacity (2022)</div>
+        </div>
+      </section>
+
+      <section id="contact" class="panel">
+        <h2 class="section-title">تواصل معي</h2>
+        <div class="contact-grid">
+          <div class="contact-card">
+            <h3>البريد</h3>
+            <p><a href="mailto:idris.ghamid@gmail.com">idris.ghamid@gmail.com</a></p>
+            <p>سريع الرد ان شاء الله.</p>
+          </div>
+          <div class="contact-card">
+            <h3>الشبكات</h3>
+            <div class="socials">
+              <a href="https://instagram.com/idris.ghamid" target="_blank" rel="noopener">Instagram</a>
+              <a href="https://tiktok.com/@idris.ghamid" target="_blank" rel="noopener">TikTok</a>
+              <a href="https://t.me/IDRV72" target="_blank" rel="noopener">Telegram</a>
+            </div>
+          </div>
+          <div class="contact-card">
+            <h3>متاح للشراكات</h3>
+            <p>مستعد لتطوير نسخ خاصة من IDRIVIA أو بناء تطبيقات جديدة لروّاد الأعمال.</p>
+            <a class="btn primary" href="mailto:idris.ghamid@gmail.com">أرسل رسالة الآن</a>
+          </div>
+        </div>
+      </section>
+    </main>
 
     <footer>
-      Crafted with ❤️ وذكاء عربي. &copy; <span id="year"></span> IDRIVIA Labs.
+      © <span id="year"></span> إدريس غامد
     </footer>
 
     <script>
