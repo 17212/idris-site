@@ -143,6 +143,12 @@
         font-size: 1.05rem;
       }
 
+      .subline {
+        color: var(--muted);
+        font-size: 1rem;
+        margin: 4px 0 18px;
+      }
+
       .hero-actions {
         display: flex;
         gap: 16px;
@@ -233,6 +239,29 @@
         gap: 18px;
       }
 
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 18px;
+      }
+
+      .service-card {
+        padding: 22px;
+        border-radius: 22px;
+        border: 1px solid var(--stroke);
+        background: rgba(255, 255, 255, 0.015);
+      }
+
+      .service-card h3 {
+        margin-top: 0;
+      }
+
+      .service-card ul {
+        padding-right: 18px;
+        color: var(--muted);
+        line-height: 1.5;
+      }
+
       .chip {
         padding: 14px 16px;
         border-radius: 18px;
@@ -252,6 +281,29 @@
         padding: 12px 18px;
         background: rgba(255, 255, 255, 0.02);
         border-radius: 18px;
+      }
+
+      .process {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 18px;
+      }
+
+      .process-step {
+        border: 1px solid var(--stroke);
+        border-radius: 20px;
+        padding: 18px;
+        background: rgba(255, 255, 255, 0.02);
+      }
+
+      .process-step span {
+        display: inline-block;
+        padding: 6px 12px;
+        border-radius: 999px;
+        background: rgba(138, 255, 92, 0.12);
+        color: var(--accent);
+        font-weight: 600;
+        margin-bottom: 10px;
       }
 
       .project-card {
@@ -326,6 +378,14 @@
         color: var(--muted);
       }
 
+      .cta-banner {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        align-items: flex-start;
+        background: linear-gradient(135deg, rgba(138, 255, 92, 0.18), rgba(255, 255, 255, 0.02));
+      }
+
       @media (max-width: 640px) {
         header {
           justify-content: center;
@@ -359,6 +419,7 @@
         <div>
           <span class="eyebrow">مطور تطبيقات أندرويد &amp; واجهات ويب</span>
           <h1>إدريس غامد.</h1>
+          <p class="subline">Android &amp; Flutter Engineer • Web Experience Builder</p>
           <p class="hero-summary">
             مطوّر يعتمد Flutter وFlutter Web لتسليم منتجات نظيفة مدعومة بالذكاء الاصطناعي. أملك شغفاً بتحويل الأفكار إلى تطبيقات جاهزة للنشر
             على المتاجر البديلة وGalaxy Store، مع تركيز على الأداء، التحليلات، وتجربة الاستخدام.
@@ -380,6 +441,39 @@
           <div class="stat">
             <strong>100%</strong>
             <span>تصاميم عربية مخصّصة</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2 class="section-title">خدمات أقدمها</h2>
+        <div class="services-grid">
+          <div class="service-card">
+            <h3>تطوير تطبيقات Flutter</h3>
+            <p>تطبيقات أندرويد عالية الجودة مع واجهات عربية ودمج ذكاء اصطناعي.</p>
+            <ul>
+              <li>ربط Firebase وAuth وFCM.</li>
+              <li>ضبط المتاجر البديلة وGalaxy Store.</li>
+              <li>تحسين الأداء وميزات الوضع الداكن.</li>
+            </ul>
+          </div>
+          <div class="service-card">
+            <h3>تجارب ويب متجاوبة</h3>
+            <p>صفحات هبوط وDashboards مبنية بFlutter Web أو HTML بسيط.</p>
+            <ul>
+              <li>تحويل تصميم Figma إلى كود.</li>
+              <li>نشر تلقائي عبر GitHub Pages.</li>
+              <li>تهيئة SEO ومحتوى عربي وإنجليزي.</li>
+            </ul>
+          </div>
+          <div class="service-card">
+            <h3>حزم إطلاق متكاملة</h3>
+            <p>إعداد الأيقونات، لقطات الشاشة، الوصف الرسمي، وسياسات الخصوصية.</p>
+            <ul>
+              <li>APKPure • Uptodown • Aptoide.</li>
+              <li>Galaxy Store ومتطلبات الشهادات.</li>
+              <li>إرشاد المحتوى التسويقي.</li>
+            </ul>
           </div>
         </div>
       </section>
@@ -486,6 +580,32 @@
       </section>
 
       <section class="panel">
+        <h2 class="section-title">طريقة العمل</h2>
+        <div class="process">
+          <div class="process-step">
+            <span>01</span>
+            <h3>اكتشاف &amp; بحث</h3>
+            <p>جمع المتطلبات، تحليل الجمهور، وتحديد مؤشرات النجاح بالعربية والإنجليزية.</p>
+          </div>
+          <div class="process-step">
+            <span>02</span>
+            <h3>تصميم &amp; نمذجة</h3>
+            <p>بناء نظام هوية بصري وخطوط عربية، ثم تحويله إلى نماذج تفاعلية.</p>
+          </div>
+          <div class="process-step">
+            <span>03</span>
+            <h3>تطوير &amp; نشر</h3>
+            <p>كتابة كود Flutter نظيف، إعداد CI/CD، وتجهيز حزم المتاجر مع وثائق كاملة.</p>
+          </div>
+          <div class="process-step">
+            <span>04</span>
+            <h3>متابعة &amp; تحسين</h3>
+            <p>تحليلات استخدام، تحسين أداء، وإطلاق تحديثات مبنية على تعليقات المستخدمين.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel">
         <h2 class="section-title">لقطات تطبيق IDRIVIA AI</h2>
         <div class="gallery">
           <img src="Screenshot_1763549189.png" alt="IDRIVIA chat" />
@@ -527,6 +647,19 @@
             <p>مستعد لتطوير نسخ خاصة من IDRIVIA أو بناء تطبيقات جديدة لروّاد الأعمال.</p>
             <a class="btn primary" href="mailto:idris.ghamid@gmail.com">أرسل رسالة الآن</a>
           </div>
+        </div>
+      </section>
+
+      <section class="panel cta-banner">
+        <div>
+          <h2>جاهز لبناء الإصدار القادم؟</h2>
+          <p>
+            سواءً كنت شركة تبحث عن مطور Flutter عربي أو ريادي أعمال يحتاج إلى منتج كامل، يمكنني مساعدتك في الذهاب من الفكرة إلى متجر جاهز للنشر.
+          </p>
+        </div>
+        <div class="hero-actions">
+          <a class="btn primary" href="mailto:idris.ghamid@gmail.com">حجز مكالمة استكشافية</a>
+          <a class="btn secondary" href="#projects">عرض المشروع الحالي</a>
         </div>
       </section>
     </main>
